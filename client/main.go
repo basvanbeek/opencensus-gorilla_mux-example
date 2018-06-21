@@ -55,7 +55,7 @@ func newClient(host string) *client {
 		Name("otherRoute")
 
 	transport := &ochttp.Transport{
-		NameFromRequest: ocmux.NameFromGorillaMux(router),
+		FormatSpanName: ocmux.NameFromGorillaMux(router),
 	}
 	httpClient := &http.Client{Transport: transport}
 
